@@ -1,0 +1,503 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700;800&display=swap');
+
+:root {
+  --primary: #ff66a3;
+  --primary-light: #ff99c8;
+  --primary-dark: #ff3385;
+  --secondary: #ffcc00;
+  --bg: #fff8fb;
+  --text: #553344;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Baloo 2', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  padding: 5rem 1.5rem 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(135deg, #fff1f3, #ffe8f0);
+  overflow: hidden;
+}
+
+/* Hero section */
+.hero {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  max-width: 36rem;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  border: 2px solid var(--primary);
+  will-change: transform;
+  margin-top: 3rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 3.2rem);
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero h1 .name {
+  font-size: clamp(2.8rem, 5vw, 3.5rem);
+  background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero h1 .kanji {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  margin-top: -0.5rem;
+  color: var(--text);
+  opacity: 0.8;
+}
+
+.tagline {
+  font-size: clamp(1.2rem, 3vw, 1.4rem);
+  color: var(--text);
+  margin: 1rem 0;
+  position: relative;
+  display: inline-block;
+}
+
+.tagline .highlight {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.tagline .paw-icon {
+  position: absolute;
+  right: -1.5rem;
+  top: -0.5rem;
+  font-size: 1.2rem;
+  color: var(--secondary);
+  transform: rotate(25deg);
+}
+
+/* Cat ears */
+.cat-ears {
+  position: absolute;
+  top: -1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6.25rem;
+  height: 3.75rem;
+  display: flex;
+  justify-content: space-between;
+  z-index: -1;
+}
+
+.ear {
+  width: 2.5rem;
+  height: 3.75rem;
+  background: white;
+  border: 2px solid var(--primary);
+  border-bottom: none;
+  border-radius: 50% 50% 0 0;
+  position: relative;
+}
+
+.ear.left-ear {
+  transform: rotate(-30deg);
+}
+
+.ear.right-ear {
+  transform: rotate(30deg);
+}
+
+.ear::before {
+  content: '';
+  position: absolute;
+  width: 1.25rem;
+  height: 1.875rem;
+  background: #ffccdd;
+  border-radius: 50% 50% 0 0;
+  top: 0.625rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Copy CA button */
+.ca-button {
+  background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+  color: white;
+  padding: 0.875rem 1.75rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: var(--transition);
+  margin: 1.5rem 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+  min-width: 12.5rem;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.ca-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255, 102, 163, 0.3);
+}
+
+.ca-button:active {
+  transform: translateY(0);
+}
+
+.ca-button .icon {
+  font-size: 1.1rem;
+}
+
+.ca-button.copied {
+  background: linear-gradient(45deg, #4caf50, #2e7d32);
+}
+
+/* Open MuuTok button */
+.open-muutok-btn {
+  background: linear-gradient(45deg, var(--secondary), #ffbb00);
+  color: var(--text);
+  padding: 0.875rem 1.75rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: var(--transition);
+  margin: 1.5rem 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+  min-width: 12.5rem;
+  justify-content: center;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+}
+
+.open-muutok-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255, 204, 0, 0.3);
+  background: linear-gradient(45deg, #ffd700, #ffbb00);
+}
+
+.open-muutok-btn:active {
+  transform: translateY(0);
+}
+
+.open-muutok-btn .icon {
+  font-size: 1.1rem;
+}
+
+/* Social icons */
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.social-icon {
+  color: var(--primary);
+  font-size: 1.5rem;
+  transition: var(--transition);
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+  color: var(--primary-dark);
+  box-shadow: var(--shadow-md);
+}
+
+.social-icon::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  opacity: 0;
+  transition: var(--transition);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.social-icon:hover::after {
+  opacity: 1;
+  bottom: -2.25rem;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--text);
+  padding: 1rem;
+  background: #fff8fc;
+  border-top: 1px solid #ffe0ed;
+  width: 100%;
+  z-index: 100;
+}
+
+.footer .paws {
+  letter-spacing: 0.125rem;
+  margin-left: 0.5rem;
+}
+
+/* Floating cats */
+.floating-cat {
+  position: absolute;
+  color: var(--primary-light);
+  font-size: 1.25rem;
+  opacity: 0.5;
+  z-index: 1;
+  will-change: transform;
+}
+
+/* Animations */
+@media (prefers-reduced-motion: no-preference) {
+  .hero {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .tagline .paw-icon {
+    animation: pawBounce 2s infinite;
+  }
+  
+  .floating-cat {
+    animation: floatAround 20s infinite linear;
+  }
+  
+  .ca-button::after {
+    animation: shine 3s infinite;
+  }
+  
+  .cat-tail {
+    animation: tailWag 5s infinite alternate;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-0.75rem); }
+}
+
+@keyframes pawBounce {
+  0%, 100% { transform: rotate(25deg) translateY(0); }
+  50% { transform: rotate(25deg) translateY(-0.5rem); }
+}
+
+@keyframes floatAround {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(1rem, 1rem) rotate(90deg); }
+  50% { transform: translate(2rem, 0) rotate(180deg); }
+  75% { transform: translate(1rem, -1rem) rotate(270deg); }
+  100% { transform: translate(0, 0) rotate(360deg); }
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(30deg); }
+  100% { transform: translateX(100%) rotate(30deg); }
+}
+
+@keyframes tailWag {
+  0% { transform: rotate(30deg); }
+  100% { transform: rotate(60deg); }
+}
+
+/* Cat tail */
+.cat-tail {
+  position: absolute;
+  right: -3.125rem;
+  bottom: 6.25rem;
+  width: 6.25rem;
+  height: 12.5rem;
+  background: linear-gradient(45deg, var(--primary-light), var(--primary));
+  border-radius: 50% 50% 0 50%;
+  transform: rotate(45deg);
+  z-index: 5;
+  opacity: 0.8;
+  display: none;
+}
+
+/* Responsive design */
+@media (min-width: 640px) {
+  .main {
+    padding: 6rem 2rem 5rem;
+  }
+  
+  .hero {
+    padding: 3rem;
+    border-radius: 2rem;
+  }
+  
+  .cat-tail {
+    display: block;
+  }
+  
+  .floating-cat {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 3rem 4rem;
+  }
+  
+  .social-icon {
+    font-size: 1.75rem;
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    max-width: 40rem;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.inline-muu-img {
+  width: 90px;
+  height: auto;
+  margin: 1rem auto;
+  display: block;
+  animation: float 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Instagram embeds */
+.instagram-embed {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  width: 240px;
+  max-width: 22vw;
+}
+
+.instagram-left {
+  left: 5rem;
+}
+
+.instagram-right {
+  right: 5rem;
+}
+
+/* Show embeds on medium+ screens */
+@media (min-width: 1024px) {
+  .instagram-embed {
+    opacity: 1;
+  }
+
+  .main {
+    padding-left: 260px;
+    padding-right: 260px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .instagram-embed {
+    width: 300px;
+  }
+
+  .main {
+    padding-left: 300px;
+    padding-right: 300px;
+  }
+}
+
+@media (min-width: 1800px) {
+  .instagram-embed {
+    width: 340px;
+  }
+
+  .main {
+    padding-left: 340px;
+    padding-right: 340px;
+  }
+}
+
+/* Instagram embed responsive tweak */
+.instagram-media {
+  width: 100% !important;
+  min-width: auto !important;
+}

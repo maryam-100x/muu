@@ -1,0 +1,100 @@
+/* Base styles */
+.muutok-feed {
+  position: relative;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.muutok-video-container {
+  width: 100%;
+  height: 100vh;
+  scroll-snap-align: start;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #fff1f3, #ffe8f0); /* optional */
+}
+
+.muutok-video {
+  width: 100%;
+  height: 100%;
+  max-width: 375px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0 auto;
+}
+
+.tiktok-embed {
+  max-height: 90vh;
+  width: 100%;
+  border: none;
+}
+
+
+/* Navigation buttons */
+.navigation-buttons {
+  position: fixed;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 100;
+}
+
+.nav-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  border: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15);
+}
+
+.nav-button:not(.disabled):hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.nav-button svg {
+  font-size: 20px;
+}
+
+.nav-button.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .muutok-video {
+    max-width: 450px;
+  }
+  
+  .navigation-buttons {
+    right: 24px;
+  }
+}
+
+/* Hide scrollbar but keep functionality */
+.muutok-feed::-webkit-scrollbar {
+  display: none;
+}
+.muutok-feed {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
