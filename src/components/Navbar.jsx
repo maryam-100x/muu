@@ -20,7 +20,7 @@ export default function Navbar() {
         </a>
         <a
           className="nav-btn outline"
-          href="https://x.com/communities"
+          href="https://x.com/i/communities/1948510937373442125"
           target="_blank"
           rel="noopener noreferrer"
         >
